@@ -1,0 +1,84 @@
+body{
+    font-family: "Alegreya Sans SC", serif;
+    background-image: url(../images/concrete_seamless.png);
+    background-color: #f1f1f1;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* fix line height probably */
+}
+
+.nav_item a{
+    display: flex;
+    align-items: center;
+}
+
+
+a:visited{
+    color: blue; 
+}
+
+div > header{
+    background: #288088;
+    border: 2px solid #45ADAD; 
+    padding: 20px 0;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+.pricing{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.card{
+    flex-basis: 450px;
+}
+
+#image1, #image2, #image3, #image4, #image5 {
+    border: 10px solid #50c7c7;
+    margin: 10px;
+    width: 300px;
+}
+
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* step 11 is transformation guy */
+
+@media screen and (min-width: 850px){
+    header{
+        align-items: flex-start;
+    }
+
+    .nav_item a{
+        
+    }
+
+}
+
+@media print{
+    body{
+        background-image: none;
+    }
+
+    .nav_item a {
+        align-items: space-around;
+    }
+
+    .pricing{
+
+    }
+
+    .gallery{
+        display: hidden;
+    }
+}
