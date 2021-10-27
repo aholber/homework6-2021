@@ -1,3 +1,4 @@
+/* default / mobile view */
 body{
     font-family: "Alegreya Sans SC", serif;
     background-image: url(../images/concrete_seamless.png);
@@ -6,16 +7,15 @@ body{
 
 header{
     display: flex;
+    align-items: center; 
     flex-direction: column;
-    align-items: center;
-    /* fix line height probably */
 }
 
-.nav_item a{
+.nav_links{
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: center; 
 }
-
 
 a:visited{
     color: blue; 
@@ -49,36 +49,77 @@ div > header{
 .gallery{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
 }
 
-/* step 11 is transformation guy */
+header > img{
+    animation-name: mymove;
+    animation-duration: 5s;
+} 
 
+/* title animation */
+@keyframes mymove {
+    0% { width: 50px; opacity: 0;}
+    100% { width: 425px; opacity: 1;}
+}
+
+/* 850px minwidth view  */
 @media screen and (min-width: 850px){
     header{
-        align-items: flex-start;
+        flex-direction: row;
+        justify-content: space-between;
     }
 
-    .nav_item a{
-        
+    body > header {
+        position: sticky;
+        top: 0;
     }
 
+    .nav_links{
+        flex-direction: row;
+    }    
+    /* fix header position */
+    .card{
+        flex-basis: 250px;
+    }
 }
 
-@media print{
+/* Reduced Motion */
+@media screen and (prefers-reduced-motion: reduce) { 
+    .mymove{
+        animation: none;
+    }
+} 
+
+    
+
+/* print view !!!change to print view before turning in */
+/* @media screen and (min-width: 1000px){ */
+@media print {
     body{
         background-image: none;
     }
 
-    .nav_item a {
-        align-items: space-around;
+    nav{
+        width: 100%
+    }
+
+    .nav_links {
+        flex-direction: row;
+        justify-content: space-evenly;
     }
 
     .pricing{
-
+        flex-wrap: nowrap;
+        align-items: flex-end;
+        /* flex-basis: 250px; */
     }
 
-    .gallery{
-        display: hidden;
+    .gallery, #gallery, #image1, #image2, #image3, #image4, #image5 {
+        display: none;
+    }
+
+    .card{
+        border: 2px solid #45ADDD;
     }
 }
